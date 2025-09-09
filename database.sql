@@ -1,3 +1,4 @@
+-- Active: 1753950191628@@127.0.0.1@3306@photography_booking
 -- Photography Booking System Database Schema
 
 CREATE DATABASE IF NOT EXISTS photography_booking;
