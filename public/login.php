@@ -53,64 +53,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/css/photography-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
-        <div class="text-center mb-8">
-            <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-camera text-white text-2xl"></i>
+<body class="bg-gradient-to-br from-neutral-warm via-white to-neutral-cool min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full auth-container rounded-2xl overflow-hidden" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2);">
+        <div class="auth-header relative z-10 bg-gradient-to-r from-gold to-teal rounded-t-2xl p-8 text-center text-white overflow-hidden">
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i class="fas fa-camera text-white text-3xl"></i>
             </div>
-            <h1 class="text-2xl font-bold text-gray-900">Welcome Back</h1>
-            <p class="text-gray-600">Sign in to your PhotoBooking account</p>
+            <h1 class="text-3xl font-bold mb-2" style="font-family: 'Playfair Display', serif;">Welcome Back</h1>
+            <p class="text-white/90 font-medium">Sign in to your PhotoBooking account</p>
         </div>
 
         <?php if ($error): ?>
-        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6">
+        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 animate-pulse flex items-center">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
             <?php echo htmlspecialchars($error); ?>
         </div>
         <?php endif; ?>
 
-        <form method="POST" class="space-y-6">
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+        <form method="POST" class="auth-form space-y-6 p-8">
+            <div class="form-group relative">
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2" style="font-family: 'Inter', sans-serif;">Email Address</label>
                 <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    class="form-input w-full pl-12"
                     placeholder="Enter your email"
+                    autocomplete="email"
                 >
+                <i class="fas fa-envelope input-icon"></i>
             </div>
 
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+            <div class="form-group relative">
+                <label for="password" class="block text-sm font-semibold text-gray-700 mb-2" style="font-family: 'Inter', sans-serif;">Password</label>
                 <input
                     type="password"
                     id="password"
                     name="password"
                     required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    class="form-input w-full pl-12"
                     placeholder="Enter your password"
+                    autocomplete="current-password"
                 >
+                <i class="fas fa-lock input-icon"></i>
+            </div>
+
+            <div class="flex items-center justify-between mb-6">
+                <label class="flex items-center">
+                    <input type="checkbox" class="rounded border-gray-300 text-teal-600 focus:ring-teal-500 mr-2">
+                    <span class="text-sm text-gray-600">Remember me</span>
+                </label>
+                <a href="#" class="text-sm text-teal-600 hover:text-teal-700 font-medium">Forgot password?</a>
             </div>
 
             <button
                 type="submit"
-                class="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-colors"
+                class="btn btn-primary w-full text-lg py-3 font-semibold flex items-center justify-center"
             >
+                <i class="fas fa-sign-in-alt mr-2"></i>
                 Sign In
             </button>
         </form>
 
-        <div class="mt-6 text-center">
-            <p class="text-gray-600">
+        <div class="auth-links text-center mt-6">
+            <p class="text-gray-600 mb-4">
                 Don't have an account?
-                <a href="?page=signup" class="text-teal-600 hover:text-teal-700 font-medium">Sign up</a>
+                <a href="?page=signup" class="text-teal-600 hover:text-teal-700 font-semibold ml-1">Create one here</a>
             </p>
-        </div>
-
-        <div class="mt-4 text-center">
-            <a href="?page=landing" class="text-sm text-gray-500 hover:text-gray-700">← Back to home</a>
+            <a href="?page=landing" class="inline-flex items-center text-sm">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to home
+            </a>
         </div>
     </div>
 </body>
