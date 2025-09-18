@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '../config/db.php';
 
 $error = '';
@@ -43,17 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PhotoBooking</title>
-    <link rel="stylesheet" href="../assets/css/globals.css">
-    <link rel="stylesheet" href="../assets/css/photography-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-gradient-to-br from-neutral-warm via-white to-neutral-cool min-h-screen flex items-center justify-center p-4">
+<div class="min-h-[calc(100vh-5rem)] flex items-center justify-center p-4 bg-gradient-to-br from-neutral-warm via-white to-neutral-cool">
     <div class="max-w-md w-full auth-container rounded-2xl overflow-hidden" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2);">
         <div class="auth-header relative z-10 bg-gradient-to-r from-gold to-teal rounded-t-2xl p-8 text-center text-white overflow-hidden">
             <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
@@ -127,5 +119,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </a>
         </div>
     </div>
-</body>
-</html>
+</div>

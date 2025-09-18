@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '../config/db.php';
 
 $error = '';
@@ -52,17 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sign Up - PhotoBooking</title>
-    <link rel="stylesheet" href="../assets/css/globals.css" />
-    <link rel="stylesheet" href="../assets/css/photography-style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-</head>
-<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<div class="min-h-[calc(100vh-5rem)] flex items-center justify-center p-4 bg-gray-50">
     <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         <div class="text-center mb-8">
             <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -179,5 +171,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="?page=landing" class="text-sm text-gray-500 hover:text-gray-700">← Back to home</a>
         </div>
     </div>
-</body>
-</html>
+</div>

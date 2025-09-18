@@ -60,11 +60,13 @@ $photographers = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhotoBooking - Professional Photography Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/globals.css">
     <link rel="stylesheet" href="../assets/css/photography-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-white text-gray-900 min-h-screen">
+<body class="bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-900 min-h-screen">
     <?php include '../navigation.php'; ?>
     
     <main class="pt-20">
